@@ -1,13 +1,8 @@
 import React from "react";
+import Counter from "./Counter";
 
-class Home extends React.Component{
-    render(){
-        return(
-            <div>
-                home component
-            </div>
-        );
-    }
+export default function Home() {
+    return (
+        <Counter />
+    );
 }
-
-export default Home;
