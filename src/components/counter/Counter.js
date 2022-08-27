@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { add, add5, reset, substract, substract5 } from "../actions/counterActions";
+import { add, add5, reset, substract, substract5 } from "../../actions/counterActions";
 import React from "react";
 
 export default function Counter() {
