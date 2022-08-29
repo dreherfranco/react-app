@@ -13,7 +13,7 @@ export default function Header() {
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" className="p-3">
-                        <Nav.Link as={Link} to="/" >Link</Nav.Link>
+                        <Nav.Link as={Link} to="/articles" >Articulos</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li" className="p-3">
                     <Nav.Link eventKey="link-2">Link</Nav.Link>

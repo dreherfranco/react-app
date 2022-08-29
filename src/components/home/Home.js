@@ -1,8 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Counter from "../counter/Counter";
 
 export default function Home() {
+    console.log(useSelector((state)=>state));
     return (
-        <Counter />
+        <React.Fragment>
+            <Counter />
+        </React.Fragment>
     );
 }
