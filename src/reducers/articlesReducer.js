@@ -1,11 +1,39 @@
 import { CREATE, UPDATE, DELETE, READ, NO_DATA } from "../types";
 
-export const initialState = {
-    articles: []
+const initialState = {
+    articles: [],
 };
 
-export default function articlesReducer(state = initialState, action) {
+const handlers = {
+    [CREATE]: handleCreateArticle,
+    [READ]: handleReadArticle
+  };
+  
+  export default function reducer(state = initialState, action) {
+    const handler = handlers[action.type];
     console.log(action);
+    return handler ? handler(state, action.payload.data) : state;
+  }
+
+  function handleReadArticle(state, articles ) {
+    console.log(articles);
+    return {
+      ...state,
+      articles: articles
+    };
+  }
+  
+  function handleCreateArticle(state, articles ) {
+    return {
+      ...state,
+      articles: state.articles.concat(articles)
+    };
+  }
+
+  
+//OTRA FORMA DE HACER EL REDUCER
+
+/*export default function articlesReducer(state = initialState, action) {
     switch (action.type) {
         case CREATE:
         {
@@ -38,12 +66,12 @@ export default function articlesReducer(state = initialState, action) {
         {
             return {
                 ...state,
-                articles: action.payload.data,
-              };
+                articles: action.payload.data
+            };
         }
         case NO_DATA:
             return initialState;
         default:
-            return state;
+            return initialState;
     }
-}
+}*/

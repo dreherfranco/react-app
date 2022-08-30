@@ -7,20 +7,20 @@ import { url } from "../../../global/url";
 const PresentationArticles = () => {
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
-    const { articles } = state.articles;
-    const articlesUrl = url + '/Articles';
 
     useEffect(() => {
         api.get('/Articles')
         .then((res) => {
             if (!res.err) {
                 dispatch(readAction(res));
-                console.log(state);
+                console.log(state)
               } else {
                 dispatch(noAction());
               }
         })
-    },[articlesUrl, dispatch]);
+    },[dispatch]);
+
+
     return(
       <h1>articulos</h1>
     );
