@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { noAction, readAction } from "../../../actions/articlesActions";
 import api from "../../../api";
@@ -22,7 +22,13 @@ const PresentationArticles = () => {
 
 
     return(
-      <h1>articulos</h1>
+      <React.Fragment>
+        
+        {state.articles.articles.map((article)=>(
+          <p>{article.name}</p>
+        ))}
+        
+      </React.Fragment>
     );
 }
 
