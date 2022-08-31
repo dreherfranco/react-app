@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
+import { connect, useDispatch, useSelector } from "react-redux"
 import { noAction, readAction } from "../../../actions/articlesActions";
 import api from "../../../api";
-import { url } from "../../../global/url";
-//import axios from "axios";
+
 const PresentationArticles = () => {
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
@@ -13,13 +12,11 @@ const PresentationArticles = () => {
         .then((res) => {
             if (!res.err) {
                 dispatch(readAction(res));
-                console.log(state)
               } else {
                 dispatch(noAction());
               }
         })
     },[dispatch]);
-
 
     return(
       <React.Fragment>
@@ -27,7 +24,7 @@ const PresentationArticles = () => {
         {state.articles.articles.map((article)=>(
           <p>{article.name}</p>
         ))}
-        
+
       </React.Fragment>
     );
 }
