@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
 import counterReducer from './counterReducer';
-import articlesReducer from './articlesReducer';
+//import articlesCrudReducer from './articlesCrudReducer';
+//import cartReducer from './cartReducer';
+import shoppingReducer from './shoppingReducer';
+
 const reducer = combineReducers({
     counter: counterReducer,
-    articles: articlesReducer
+    //articles: articlesCrudReducer,
+    shopping: shoppingReducer,
 });
 
 export default reducer;

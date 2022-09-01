@@ -11,7 +11,6 @@ const handlers = {
   
   export default function reducer(state = initialState, action) {
     const handler = handlers[action.type];
-    console.log(action);
     return handler ? handler(state, action.payload.data) : state;
   }
 

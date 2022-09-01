@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../logo.svg';
 
 const Header = ({ menu }) => {
-    console.log(menu[0].to)
+
         return (
             <Nav defaultActiveKey="/" as="ul" className="bg-dark">
                 <Nav.Item as="li" className="p-3">
