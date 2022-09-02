@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import counterReducer from './counterReducer';
 //import articlesCrudReducer from './articlesCrudReducer';
-//import cartReducer from './cartReducer';
 import shoppingReducer from './shoppingReducer';
 
 const reducer = combineReducers({

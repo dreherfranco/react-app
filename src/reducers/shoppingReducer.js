@@ -1,4 +1,3 @@
-import api from "../api";
 import { REMOVE_FROM_CART, ADD_TO_CART, EMPTY_CART, READ_SHOPPING_ARTICLES } from "../types";
 
 const initialState = {
@@ -34,21 +33,21 @@ const handlers = {
     let newItem = state.articles.find(
       (article) => article.id === articleId
     );
-    console.log(newItem);
 
+    console.log(state)
     let itemInCart = state.cart.find((item) => item.id === newItem.id);
     return itemInCart
       ? {
           ...state,
           cart: state.cart.map((item) =>
             item.id === newItem.id
-              ? { ...item, quantity: item.quantity + 1 }
+              ? { ...item, quantity: item.quantity + 1, stockAvailable: item.stockAvailable - 1 }
               : item
           ),
         }
       : {
           ...state,
-          cart: [...state.cart, { ...newItem, quantity: 1 }],
+          cart: [...state.cart, { ...newItem, quantity: 1 , stockAvailable: newItem.stock - 1}],
         };
     }
 
@@ -71,6 +70,6 @@ const handlers = {
     }
 
     function handleEmptyCart(state, articleId ) {
-    return initialState;
+      return initialState;
     }
 
